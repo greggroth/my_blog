@@ -1,0 +1,6 @@
+= form_for @post, :html => {:class => "well"} do |f|
+  = f.label :title
+  = f.text_field :title, class: :span6
+  = f.label :body
+  = f.text_area :body, class: :span8
+  = f.submit

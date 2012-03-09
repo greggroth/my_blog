@@ -6,4 +6,22 @@ head
   = javascript_include_tag "application"
   = csrf_meta_tags
 body
-  = yield
+.navbar.navbar-fixed-top
+  .navbar-inner#header
+    .container
+      a.btn.btn-navbar data-toggle="collapse" data-target=".collapse"
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      =link_to "Coded World", root_url, {class: :brand}
+      .nav-collapse
+        ul.nav
+          li =link_to "about me"
+          li =link_to "Github", "https://github.com/greggroth"
+.container
+  .row
+    .span9
+      = yield
+    .span3
+      h2 About Me
+      p I am awesome and this is why.  Bla bla bla. Lorem ipsum.

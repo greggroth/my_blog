@@ -1,0 +1,13 @@
+@import "bourbon";
+@import "bootstrap_and_overrides";
+@import "markdownizer";
+@import "posts";
+
+#header {
+  @include linear-gradient(#777, #444);
+  @include box-shadow(0 0 6px 3px #000);
+}
+
+.CodeRay {
+  @include border-radius(6px);
+}
