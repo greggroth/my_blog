@@ -8,6 +8,8 @@
   @include box-shadow(0 0 6px 3px #000);
 }
 
-.CodeRay {
-  @include border-radius(6px);
+.footer {
+  margin-top: 30px;
+  padding: 15px 0 36px;
+  border-top: 1px solid #E5E5E5;
 }

@@ -1,3 +1,23 @@
 // Place all the styles related to the post controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.published_at {
+  color: #A0A0A0;
+}
+
+.CodeRay {
+  @include border-radius(6px);
+}
+
+.modify_links {
+  margin-top: 10px;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+.btn-cancel {
+  margin: 0px 10px;
+}

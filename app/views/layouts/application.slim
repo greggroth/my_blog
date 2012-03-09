@@ -6,22 +6,40 @@ head
   = javascript_include_tag "application"
   = csrf_meta_tags
 body
-.navbar.navbar-fixed-top
-  .navbar-inner#header
-    .container
-      a.btn.btn-navbar data-toggle="collapse" data-target=".collapse"
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      =link_to "Coded World", root_url, {class: :brand}
-      .nav-collapse
-        ul.nav
-          li =link_to "about me"
-          li =link_to "Github", "https://github.com/greggroth"
-.container
-  .row
-    .span9
-      == yield
-    .span3
-      h2 About Me
-      p I am awesome and this is why.  Bla bla bla. Lorem ipsum.
+  .navbar.navbar-fixed-top
+    .navbar-inner#header
+      .container
+        a.btn.btn-navbar data-toggle="collapse" data-target=".nav-collapse"
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        =link_to "Coded World", root_url, {class: :brand}
+        .nav-collapse
+          ul.nav
+            li = link_to "Github", "https://github.com/greggroth"
+            li = link_to "LinkedIn", "http://www.linkedin.com/pub/greggory-rothmeier/3a/82/5aa" 
+            li = link_to "Twitter", "https://twitter.com/#!/greggroth"
+  .container
+    - if flash[:alert]
+      .row
+        .span6.offset3
+          .alert.alert-error
+            a.close data-dismiss="alert" &times;
+            = flash[:alert]
+    - if flash[:notice]
+      .row
+        .span6.offset3
+          .alert.alert-info
+            a.close data-dismiss="alert" &times;
+            = flash[:notice]
+    .row
+      .span9
+        == yield
+      .span3
+        h2 About Me
+        p I am awesome and this is why.  Bla bla bla. Lorem ipsum.
+    footer.footer
+      - if admin_signed_in?
+        p = link_to "Logout", destroy_admin_session_path, method: :delete
+      - else
+        p = link_to "Admin login", new_admin_session_path

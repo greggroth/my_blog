@@ -1,2 +1,6 @@
 h1 = @post.title
+p.published_at = @post.published_at
 == @post.rendered_body
+div.modify_links
+  #{link_to "edit", edit_post_path(@post)}  |  #{link_to "remove", @post, method: :delete}
+  

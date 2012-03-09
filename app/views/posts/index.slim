@@ -2,4 +2,5 @@ h1 Welcome!
 - @posts.each do |post|
   .post_summary
     h2 = link_to post.title, post
-    = post.summary
+    p.published_at = post.published_at
+    p = post.summary

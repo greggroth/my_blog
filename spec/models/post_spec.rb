@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe Post do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "creates a new post" do
+    post = Post.create!(title: "Test Title", body: "This is an awesome story")
+    assert post.save
+  end
 end
