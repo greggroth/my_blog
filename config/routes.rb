@@ -6,6 +6,7 @@ MyBlog::Application.routes.draw do
 
   root to: "posts#index"
   resources :posts
+  resources :tags, :only => [:index, :show]
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

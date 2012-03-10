@@ -22,6 +22,22 @@ h1 {
   margin: 0px 10px;
 }
 
+a.btn-tag {
+  @include border-radius(3px);
+  margin: 1px 1px;
+  padding: 3px 7px;
+  color: white;
+  background-color: #4A95BC;
+  text-decoration: none;
+  &:hover {
+    background-color: #99414C;
+  }
+}
+
+.post-body {
+  margin-top: 20px;
+}
+
 .fb-comments {
   margin-top: 20px;
   padding: 10px 0 36px;

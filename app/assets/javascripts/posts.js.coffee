@@ -4,10 +4,11 @@
 
 $(document).ready () ->
   updatePreview()
+  $('#post_tags_tokens').tokenInput('/tags.json', { crossDomain: false, theme: 'facebook' })
 
 # Updates the post-preview div if the post-body is present
 updatePreview = ->
   if $('#post-body').html()
     setTimeout(updatePreview, 500)
     converter = new Markdown.Converter()
-    $('#post-preview').html(converter.makeHtml($('#post-body').val()))
+    $('#post-preview').html(converter.makeHtml($('#post-body').val()))  

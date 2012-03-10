@@ -10,7 +10,13 @@ javascript:
 
 h1 = @post.title
 p.published_at = @post.published_at
-== @post.rendered_body
+- unless @post.tags.empty?
+  .tags
+    | Tags: 
+    - @post.tags.each do |i|
+      = link_to i.name, i, class: "btn-tag"
+.post-body
+  == @post.rendered_body
 .fb-comments data-href='#{post_url(@post)}' data-num-posts="2" data-width="470"
 div.modify_links
   #{link_to "edit", edit_post_path(@post)}  |  #{link_to "remove", @post, method: :delete}

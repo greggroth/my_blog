@@ -1,12 +1,16 @@
 = form_for @post, :html => {:class => "well"} do |f|
   fieldset  
     = f.label :title, class: "control-label"
-    div.control
+    .control
       = f.text_field :title, class: "span8"
+    = f.label :tag_tokens, "Tags"
+    .control
+      = f.text_field :tag_tokens, id: "post_tags_tokens", "data-pre" => @post.tags.map(&:attributes).to_json
+    br
     = f.label :body, class: "control-label wmd-input", id: "wmd-input"
-    div.control
+    .control
       = f.text_area :body, class: "span8", id: "post-body"
-    div.form-actions
+    .form-actions
       = f.submit "Submit", class: "btn btn-primary"
       = link_to "Cancel", @post, class: "btn btn-cancel"
 br

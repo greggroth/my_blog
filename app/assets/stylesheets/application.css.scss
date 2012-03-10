@@ -2,6 +2,7 @@
 @import "bootstrap_and_overrides";
 @import "markdownizer";
 @import "posts";
+@import "token-input-facebook";
 
 #header {
   @include linear-gradient(#777, #444);
