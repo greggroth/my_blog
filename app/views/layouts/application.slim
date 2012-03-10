@@ -13,12 +13,13 @@ body
           span.icon-bar
           span.icon-bar
           span.icon-bar
-        =link_to "Coded World", root_url, {class: :brand}
+        =link_to "greggroth: Coded World", root_url, {class: :brand}
         .nav-collapse
           ul.nav
             li = link_to "Github", "https://github.com/greggroth"
             li = link_to "LinkedIn", "http://www.linkedin.com/pub/greggory-rothmeier/3a/82/5aa" 
             li = link_to "Twitter", "https://twitter.com/#!/greggroth"
+            li = link_to "ATLBeerList", "http://www.atlbeerlist.com"
   .container
     - if flash[:alert]
       .row
@@ -37,7 +38,7 @@ body
         == yield
       .span3
         h2 About Me
-        p I am awesome and this is why.  Bla bla bla. Lorem ipsum.
+        p Armed with a masters in physics, I hope to make a name for myself in the web development community.  I have a background in Mathematica and Matlab, and now am becoming a master in Ruby and Ruby on Rails.  This is my blog and my portfolio.
     footer.footer
       - if admin_signed_in?
         p = link_to "Logout", destroy_admin_session_path, method: :delete
