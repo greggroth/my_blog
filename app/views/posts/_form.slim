@@ -3,9 +3,11 @@
     = f.label :title, class: "control-label"
     div.control
       = f.text_field :title, class: "span8"
-    = f.label :body, class: "control-label"
+    = f.label :body, class: "control-label wmd-input", id: "wmd-input"
     div.control
-      = f.text_area :body, class: "span8"
+      = f.text_area :body, class: "span8", id: "post-body"
     div.form-actions
       = f.submit "Submit", class: "btn btn-primary"
       = link_to "Cancel", @post, class: "btn btn-cancel"
+br
+div#post-preview
