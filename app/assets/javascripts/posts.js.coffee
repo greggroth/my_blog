@@ -4,9 +4,10 @@
 
 $(document).ready () ->
   updatePreview()
-  
+
+# Updates the post-preview div if the post-body is present
 updatePreview = ->
-  setTimeout(updatePreview, 3000)
-  converter = new Markdown.Converter()
-  $('#post-preview').html(converter.makeHtml($('#post-body').val()))
-  console.log($('#post-body').text())
+  if $('#post-body').html()
+    setTimeout(updatePreview, 500)
+    converter = new Markdown.Converter()
+    $('#post-preview').html(converter.makeHtml($('#post-body').val()))
