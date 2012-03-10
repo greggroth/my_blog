@@ -8,6 +8,6 @@ class TagsController < ApplicationController
   end
   
   def show
-    @tar = Tag.find(params[:id])
+    @tag = Tag.find(params[:id])
   end
 end

@@ -25,12 +25,12 @@ h1 {
 a.btn-tag {
   @include border-radius(3px);
   margin: 1px 1px;
-  padding: 3px 7px;
-  color: white;
-  background-color: #4A95BC;
+  padding: 1px 5px;
+  background-color: white;
+  border: 1px solid #C8C8C8;
   text-decoration: none;
   &:hover {
-    background-color: #99414C;
+    background-color: #C3EEF3;
   }
 }
 

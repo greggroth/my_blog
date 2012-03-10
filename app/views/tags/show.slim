@@ -1,5 +1,5 @@
-h1 Welcome!
-- @posts.each do |post|
+h1 Posts tagged with "#{@tag.name}"
+- @tag.posts.each do |post|
   .post_summary
     h2 = link_to post.title, post
     p.published_at = post.published_at
