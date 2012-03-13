@@ -4,7 +4,10 @@
 
 $(document).ready () ->
   updatePreview()
-  $('#post_tags_tokens').tokenInput('/tags.json', { crossDomain: false, theme: 'facebook' })
+  $('#post_tags_tokens').tokenInput('/tags.json', { 
+    crossDomain: false, 
+    theme: 'facebook'
+    })
 
 # Updates the post-preview div if the post-body is present
 updatePreview = ->

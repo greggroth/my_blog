@@ -506,7 +506,7 @@ $.TokenList = function (input, url_or_data, settings) {
                 input_token.insertAfter(found_existing_token);
                 input_box.focus();
                 return;
-            }
+            } 
         }
 
         // Insert the new tokens
