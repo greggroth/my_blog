@@ -1,4 +1,12 @@
 = form_for @post, :html => {:class => "well"} do |f|
+  - if @post.errors.any?
+    .row
+      .span6.offset1
+        .alert.alert-error
+          | Houston we had some issues:
+          ul
+            - @post.errors.full_messages.each do |msg|
+              li = msg
   fieldset  
     = f.label :title, class: "control-label"
     .control
