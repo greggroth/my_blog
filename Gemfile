@@ -31,6 +31,11 @@ group :test, :development do
   gem "rspec-rails", "~> 2.6"
 end
 
+group :test do
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
+end
+
 gem 'jquery-rails'
 gem 'markdownizer'
 gem 'bourbon'

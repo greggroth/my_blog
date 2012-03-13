@@ -22,7 +22,7 @@ class PostsController < ApplicationController
   
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @path, notice: "Post created" }
+        format.html { redirect_to @post, notice: "Post created" }
       else
         format.html { render action: :edit, notice: "Try again" }
       end
@@ -34,10 +34,19 @@ class PostsController < ApplicationController
   
     respond_to do |format|
       if @post.update_attributes(params[:post])
-        format.html { redirect_to @post, :notice => "Post upated" }
+        format.html { redirect_to @post, notice: "Post upated" }
       else
-        format.html { render action: :edit, notice: "Try again" }
+        format.html { render action: :edit }
       end
+    end
+  end
+  
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    
+    respond_to do |format|
+      format.html { redirect_to posts_path, notice: "Post removed"}
     end
   end
 end
