@@ -15,7 +15,7 @@ class Post < ActiveRecord::Base
   end
   
   def tag_tokens=(ids)
-    self.tag_ids = ids.split(",").map(&:to_i)
+    self.tag_ids = ids.split(",").map(&:to_i).delete_if { |i| i == 0 }
   end
   
   def tag_tokens
