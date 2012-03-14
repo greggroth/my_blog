@@ -1,0 +1,10 @@
+h2 About Me
+p Armed with a masters in physics and a nearly delusional level of optimism, I hope to make a name for myself in the web development community.  I have a background in Mathematica and Matlab, and now am becoming a master in Ruby and Ruby on Rails.  This is my blog and my portfolio.
+.divider
+  a.btn.btn-info href="#{posts_url(:rss)}"
+    i.icon-th-list     
+    '   RSS Feed
+h2 Tags
+ul.unstyled
+  - Tag.all.each do |tag|
+    li = link_to "#{tag.name} (#{tag.posts.count})", tag_path(tag)
