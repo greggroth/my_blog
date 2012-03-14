@@ -9,15 +9,19 @@ gem 'pg'
 gem 'slim'
 gem 'jbuilder'
 gem 'heroku'
+gem 'formtastic'
+gem 'formtastic-bootstrap'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  gem 'less-rails'
+  # gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
+  # gem 'twitter-bootstrap-rails'
   gem 'twitter-bootstrap-rails'
   gem 'uglifier', '>= 1.0.3'
 end
