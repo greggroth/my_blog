@@ -8,6 +8,7 @@ $(document).ready () ->
     crossDomain: false, 
     theme: 'facebook'
     })
+  $('.help-inline').addClass("label label-important")
 
 # Updates the post-preview div if the post-body is present
 updatePreview = ->

@@ -3,7 +3,7 @@
     .row
       .span6.offset1
         .alert.alert-error
-          | Houston we had some issues:
+          | Houston we have some issues:
           ul
             - @post.errors.full_messages.each do |msg|
               li = msg
@@ -12,13 +12,9 @@
     = f.input :title, input_html: { class: "span6"}
     = f.input :tag_tokens, input_html: { id: "post_tags_tokens", "data-pre" => @post.tags.map(&:attributes).to_json }
     = f.input :body,  :input_html => { id: "post-body", class: "span8"}, wrapper_html: { class: "control-label wmd-input", id: "wmd-input" }
-    = f.actions
-    
-  / = f.inputs do
-  /   = f.input :title, :input_html => { class: "span8"}, :wrapper_html => { class: "control" }
-  /   = f.input :tag_tokens, :input_html => { id: "post_tags_tokens", "data-pre" => @post.tags.map(&:attributes).to_json }
-  /   = f.input :body,  :intput_html => { class: "span8", id: "post-body"}, wrapper_html: { class: "control-label wmd-input", id: "wmd-input" }
-  /   = f.actions
+    .form-actions
+      = f.submit "Submit", class: "btn btn-primary"
+      = link_to "Cancel", @post, class: "btn btn-cancel"
               
                             
   / fieldset  
