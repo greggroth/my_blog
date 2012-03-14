@@ -45,7 +45,7 @@ body
             '   RSS Feed
         h2 Tags
         ul.unstyled
-        - @tags.each do |tag|
+        - Tag.all.each do |tag|
           li = link_to "#{tag.name} (#{tag.posts.count})", tag_path(tag)
     footer.footer
       - if admin_signed_in?

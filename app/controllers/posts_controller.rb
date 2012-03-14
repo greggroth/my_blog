@@ -3,7 +3,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.find(:all, limit: 10)
-    @tags = Tag.find(:all)
     respond_to do |format|
       format.html
       format.rss { render layout: false }
