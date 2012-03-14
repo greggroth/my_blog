@@ -3,4 +3,4 @@
 Written from scratch to provide exactly what I want in terms of a blog and a place 
 that I can share a little bit about myself.
 
-[Check it out](https://github.com/greggroth/my_blog)
+[Check it out](http://greggroth.herokuapp.com/)
