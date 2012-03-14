@@ -1,9 +1,9 @@
 xml.instruct! :xml, :version => "1.0" 
 xml.rss :version => "2.0" do
   xml.channel do
-    xml.title       "greggroth.heroku.com posts"
+    xml.title       "Coded World"
     xml.link        posts_url
-    xml.description "greggroth.heroku.com Coded World Blog"
+    xml.description "Coded World Blog (greggroth.heroku.com)"
     
     @posts.each do |post|
       xml.item do
