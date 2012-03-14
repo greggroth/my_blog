@@ -11,7 +11,7 @@ $(document).ready () ->
 
 # Updates the post-preview div if the post-body is present
 updatePreview = ->
-  if $('#post-body').html()
+  if $('#post-body').is('*')
     setTimeout(updatePreview, 500)
     converter = new Markdown.Converter()
     $('#post-preview').html(converter.makeHtml($('#post-body').val()))  
