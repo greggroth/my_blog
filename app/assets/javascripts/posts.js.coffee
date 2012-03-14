@@ -3,7 +3,8 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $(document).ready () ->
-  updatePreview()
+  if $('#post-body').is('*')
+    updatePreview()
   $('#post_tags_tokens').tokenInput('/tags.json', { 
     crossDomain: false, 
     theme: 'facebook'
@@ -12,7 +13,15 @@ $(document).ready () ->
 
 # Updates the post-preview div if the post-body is present
 updatePreview = ->
-  if $('#post-body').is('*')
-    setTimeout(updatePreview, 500)
-    converter = new Markdown.Converter()
-    $('#post-preview').html(converter.makeHtml($('#post-body').val()))  
+  console.log("Updating")
+  code_pattern = /\{\%\scode\s(.+)\s\%\}([^\{]*)\s+\{\%\sendcode\s\%\}/
+  setTimeout(updatePreview, 5000)
+  converter = new Markdown.Converter()
+  converted_text = converter.makeHtml($('textarea#post-body').val())
+  unformatted_code = converted_text.match(code_pattern)[2]
+  language = converted_text.match(code_pattern)[1]
+  $.getJSON( '/posts/1/markdown_code.json',
+    data: { code: unformatted_code, language: language },
+    (formatted_code) ->
+      $('#post-preview').html(converted_text.replace(code_pattern, formatted_code)))
+    

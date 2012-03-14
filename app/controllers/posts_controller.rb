@@ -53,4 +53,11 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_path, notice: "Post removed"}
     end
   end
+  
+  def markdown_code
+    @formatted_code = CodeRay.scan(params[:data]["code"], params[:data]["language"].to_sym).div
+    respond_to do |format|
+      format.json { render json: @formatted_code.to_json }
+    end
+  end
 end

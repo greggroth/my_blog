@@ -5,7 +5,9 @@ MyBlog::Application.routes.draw do
   # first created -> highest priority.
 
   root to: "posts#index"
-  resources :posts
+  resources :posts do
+    get :markdown_code
+  end
   resources :tags, :only => [:index, :show]
 
   # Sample of regular route:
