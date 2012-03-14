@@ -40,6 +40,7 @@ body
       .span2
         = render partial: "layouts/sidebar"
     footer.footer
+      p Site styling provided by #{link_to "Twitter Bootstrap", "http://twitter.github.com/bootstrap/index.html"}.
       - if admin_signed_in?
         p #{link_to "Logout", destroy_admin_session_path, method: :delete} | #{link_to "New Post", new_post_path}
       - else
