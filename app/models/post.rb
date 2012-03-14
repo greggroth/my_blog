@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   markdownize! :body
   
   def summary(length=300)
-    rendered_body.gsub(/(<[^>]*>)|\n|\t/s," ")[0..length]
+    rendered_body.gsub(/(<[^>]*>)|\n|\t/s," ")[0..length] + "..."
   end
   
   def published_at
