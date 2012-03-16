@@ -7,6 +7,7 @@ gem 'rails', '3.2.2'
 
 gem 'pg'
 gem 'slim'
+gem 'slim-rails'
 gem 'jbuilder'
 gem 'heroku'
 gem 'formtastic'

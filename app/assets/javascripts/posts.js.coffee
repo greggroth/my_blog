@@ -4,7 +4,9 @@
 
 $(document).ready () ->
   if $('#post-body').is('*')
-    updatePreview()
+    window.setInterval ->
+      updatePreview()
+    , 3000
   $('#post_tags_tokens').tokenInput('/tags.json', { 
     crossDomain: false, 
     theme: 'facebook'
@@ -13,15 +15,16 @@ $(document).ready () ->
 
 # Updates the post-preview div if the post-body is present
 updatePreview = ->
-  console.log("Updating")
   code_pattern = /\{\%\scode\s(.+)\s\%\}([^\{]*)\s+\{\%\sendcode\s\%\}/
-  setTimeout(updatePreview, 5000)
   converter = new Markdown.Converter()
   converted_text = converter.makeHtml($('textarea#post-body').val())
-  unformatted_code = converted_text.match(code_pattern)[2]
-  language = converted_text.match(code_pattern)[1]
-  $.getJSON( '/posts/1/markdown_code.json',
-    data: { code: unformatted_code, language: language },
-    (formatted_code) ->
-      $('#post-preview').html(converted_text.replace(code_pattern, formatted_code)))
-    
+  if converted_text.match(code_pattern) != null
+    unformatted_code = converted_text.match(code_pattern)[2]
+    language = converted_text.match(code_pattern)[1]
+    $.getJSON( '/posts/1/markdown_code.json',
+      data: { code: unformatted_code, language: language },
+      (formatted_code) -> 
+        $('#post-preview').html(converted_text.replace(code_pattern, formatted_code))
+      )
+  else
+    $('#post-preview').html(converted_text)
