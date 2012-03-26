@@ -18,7 +18,7 @@ updatePreview = ->
   code_pattern = /\{\%\scode\s(.+)\s\%\}([^\{]*)\s+\{\%\sendcode\s\%\}/
   converter = new Markdown.Converter()
   converted_text = converter.makeHtml($('textarea#post-body').val())
-  if converted_text.match(code_pattern) != null
+  if converted_text.match(code_pattern)?
     unformatted_code = converted_text.match(code_pattern)[2]
     language = converted_text.match(code_pattern)[1]
     $.getJSON( '/posts/1/markdown_code.json',
