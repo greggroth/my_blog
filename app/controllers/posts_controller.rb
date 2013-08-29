@@ -23,7 +23,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(params[:post])
-  
+
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: "Post created" }
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-  
+
     respond_to do |format|
       if @post.update_attributes(params[:post])
         format.html { redirect_to @post, notice: "Post upated" }
@@ -44,16 +44,16 @@ class PostsController < ApplicationController
       end
     end
   end
-  
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    
+
     respond_to do |format|
       format.html { redirect_to posts_path, notice: "Post removed"}
     end
   end
-  
+
   def markdown_code
     @formatted_code = CodeRay.scan(params[:data]["code"], params[:data]["language"].to_sym).div
     respond_to do |format|

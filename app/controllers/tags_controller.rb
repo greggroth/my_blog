@@ -1,5 +1,5 @@
 class TagsController < ApplicationController
-  
+
   def index
     params[:q].gsub!(/create_(.+?)_end/) do
       Tag.create!(name: $1).id
@@ -9,7 +9,7 @@ class TagsController < ApplicationController
       format.json { render :json => @tags.map(&:attributes) }
     end
   end
-  
+
   def show
     @tag = Tag.find(params[:id])
   end
