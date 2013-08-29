@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_filter :authenticate_admin!, :except => [:index, :show]
 
   def index
-    @posts = Post.find(:all, limit: 10)
+    @posts = Post.recent
     respond_to do |format|
       format.html
       format.rss { render layout: false }

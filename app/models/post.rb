@@ -5,7 +5,9 @@ class Post < ActiveRecord::Base
   
   validates_presence_of :title, :body
   markdownize! :body
-  
+
+  scope :recent, -> { order("created_at DESC").limit(10) }
+
   def summary(max_length=300)
     rendered_body.gsub(/(<[^>]*>)|\n|\t/s," ")[0..max_length] + "..."
   end
